@@ -1,1 +1,0 @@
-Pytest Framework for Splitwise
