@@ -56,18 +56,24 @@ class MockTransactions:
 
 
 class MockBalances:
-    def get_mock_balances_user2_user1_owe_user4_user3(self):
-        mock_balance_user2_owes_user4 = mock_balances.mock_balances_4_users_group[0]
-        gpin = mock_balance_user2_owes_user4['gpin']
-        user_owed = mock_balance_user2_owes_user4['user_owed']
-        user_owes = mock_balance_user2_owes_user4['user_owes']
-        amount = mock_balance_user2_owes_user4['amount']
-        object_balance_user2_owes_user4 = Balances(gpin, user_owed, user_owes, amount)
-        mock_balance_user1_owes_user3 = mock_balances.mock_balances_4_users_group[1]
-        gpin = mock_balance_user1_owes_user3['gpin']
-        user_owed = mock_balance_user1_owes_user3['user_owed']
-        user_owes = mock_balance_user1_owes_user3['user_owes']
-        amount = mock_balance_user1_owes_user3['amount']
-        object_balance_user1_owes_user3 = Balances(gpin, user_owed, user_owes, amount)
-        data = [object_balance_user2_owes_user4, object_balance_user1_owes_user3]
+    def get_mock_balances_user4user3user2_owe_user1(self):
+        mock_balance_user4_owes_user1 = mock_balances.mock_balances_4_users_group[0]
+        gpin = mock_balance_user4_owes_user1['gpin']
+        user_owed = mock_balance_user4_owes_user1['user_owed']
+        user_owes = mock_balance_user4_owes_user1['user_owes']
+        amount = mock_balance_user4_owes_user1['amount']
+        object_balance_user4_owes_user1 = Balances(gpin, user_owed, user_owes, amount)
+        mock_balance_user3_owes_user1 = mock_balances.mock_balances_4_users_group[1]
+        gpin = mock_balance_user3_owes_user1['gpin']
+        user_owed = mock_balance_user3_owes_user1['user_owed']
+        user_owes = mock_balance_user3_owes_user1['user_owes']
+        amount = mock_balance_user3_owes_user1['amount']
+        object_balance_user3_owes_user1 = Balances(gpin, user_owed, user_owes, amount)
+        mock_balance_user2_owes_user1 = mock_balances.mock_balances_4_users_group[1]
+        gpin = mock_balance_user2_owes_user1['gpin']
+        user_owed = mock_balance_user2_owes_user1['user_owed']
+        user_owes = mock_balance_user2_owes_user1['user_owes']
+        amount = mock_balance_user2_owes_user1['amount']
+        object_balance_user2_owes_user1 = Balances(gpin, user_owed, user_owes, amount)
+        data = [object_balance_user4_owes_user1, object_balance_user3_owes_user1, object_balance_user2_owes_user1]
         return MockRequestResponse(data)

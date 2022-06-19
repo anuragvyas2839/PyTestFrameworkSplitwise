@@ -21,7 +21,7 @@ def mock_transactions_and_balances() -> None:
     global mock_post_new_resource_request_response, mock_balances_for_4_users_transactions
     mock_post_new_resource_request_response = MockRequestResponse(status_code=201)
     mock_balances = MockBalances()
-    mock_balances_for_4_users_transactions = mock_balances.get_mock_balances_user2_user1_owe_user4_user3()
+    mock_balances_for_4_users_transactions = mock_balances.get_mock_balances_user4user3user2_owe_user1()
 
 
 @pytest.fixture(autouse=True, scope='class')
