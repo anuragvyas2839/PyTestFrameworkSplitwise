@@ -48,6 +48,8 @@ def get_expected_balances():
 class TestGetUsersForGroup():
 
     @pytest.mark.order(1)
+    @pytest.mark.smoke
+    @pytest.mark.regression
     @patch('utils.request_utils.get_response_for_post_request')
     @pytest.mark.parametrize("params_for_post_transaction",
                              ["params_for_post_transaction_equal_split", "params_for_post_transaction_unequal_split"])
@@ -61,6 +63,8 @@ class TestGetUsersForGroup():
         logging.info("Transaction successfully posted!")
 
     @pytest.mark.order(2)
+    @pytest.mark.smoke
+    @pytest.mark.regression
     @patch('utils.request_utils.get_response_for_post_request')
     @pytest.mark.depends(on=['test_when_transaction_between_4_users'])
     def test_when_balance_calculated_between_4_users(self, mock_post_response, mock_transactions_and_balances):
@@ -73,6 +77,8 @@ class TestGetUsersForGroup():
         logging.info("Balances successfully calculated and posted!")
 
     @pytest.mark.order(3)
+    @pytest.mark.smoke
+    @pytest.mark.regression
     @patch('utils.request_utils.get_response_for_get_request')
     @pytest.mark.usefixtures("get_expected_balances")
     def test_correct_balances_were_calculated_between_4_users(self, mock_get_response, mock_transactions_and_balances, get_expected_balances):

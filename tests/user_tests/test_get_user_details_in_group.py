@@ -28,6 +28,8 @@ def mock_users()->None:
 class TestGetUsersForGroup():
 
     @pytest.mark.order(1)
+    @pytest.mark.smoke
+    @pytest.mark.regression
     def test_when_two_users_in_group(self, mock_users_by_group, mock_users, setup):
         '''Test if correct details of users are returned for a group with 2 users'''
         mock_users_by_group.return_value = two_mock_users_for_group_1
@@ -48,6 +50,7 @@ class TestGetUsersForGroup():
         logging.info("Test passed!")
 
     @pytest.mark.order(2)
+    @pytest.mark.regression
     def test_when_single_user_in_group(self, mock_users_by_group, mock_users, setup):
         '''Test if correct details of users are returned for a group with only 1 user'''
         mock_users_by_group.return_value = single_mock_user_for_group_1
@@ -61,6 +64,7 @@ class TestGetUsersForGroup():
         logging.info("Test passed!")
 
     @pytest.mark.order(3)
+    @pytest.mark.regression
     def test_when_group_name_non_existent(self, mock_users_by_group, mock_users, setup):
         '''Test if appropriate http response is returned if api to get user details called for non existing group name'''
         mock_users_by_group.return_value = no_group_found_for_group_2

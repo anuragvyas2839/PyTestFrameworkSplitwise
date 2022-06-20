@@ -39,6 +39,8 @@ def post_request_params() -> None:
 class TestGetUsersForGroup():
 
     @pytest.mark.order(1)
+    @pytest.mark.smoke
+    @pytest.mark.regression
     @patch('utils.request_utils.get_response_for_get_request')
     @patch('utils.request_utils.get_response_for_post_request')
     def test_when_new_user_added_to_group(self, mock_post_response, mock_user_details):
@@ -73,6 +75,7 @@ class TestGetUsersForGroup():
 
     @pytest.mark.order(2)
     @pytest.mark.depends(on=['test_when_new_user_added_to_group'])
+    @pytest.mark.regression
     @patch('utils.request_utils.get_response_for_post_request')
     def test_when_existing_user_added_to_group(self, mock_post_response):
         '''Test when a user already existing in a group is requested to be added to the group'''
